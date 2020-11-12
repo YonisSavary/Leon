@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Leon - Applying</title>
+		<link rel="stylesheet" href="../css/style.css">
+	</head>
+	<body class="fading">
+		<section class="full-width flex-column align-center spaced">
+			<section class="full-width align-center flex-column" id="confirmSection">
+				<img id="tagsCover" src="" class="big-icon"/>
+				<h1 id="tagsTitle"></h1>
+				<h2 id="tagsArtist"></h2>
+				<span>Genre : <span id="tagsGenre"></span></span>
+				<span>Année : <span id="tagsYear"></span></span>
+				<table class="full-width spaced text-center" id="tagsTracklist">
+				</table> 
+			</section>
+			<section class="spaced" id="validateTagsSection">
+					<button class="button primary" onclick="validate()">Confirm</button>
+			</section>
+			<pre id="logsSection"></pre>
+		</section>
+	</body>
+	<script src="build.js"></script>
+</html>

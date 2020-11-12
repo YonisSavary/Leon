@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Leon - Token Verification</title>
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+    <!-- LOADING SECTION | VISIBLE BY DEFAULT -->
+    <section class="screen-size full-width flex-center" id="loadingSection">
+      <h1>Chargement...</h1>
+    </section>
+    <!-- TOKEN FORM SECTION | ONLY VISIBLE IF api.json DOES NOT EXISTS -->
+    <section class="screen-size full-width flex-center" id="inputTokenSection" style="display: none;">
+      <h1>api.json not found 👀</h1>
+      <p>This application need a Discogs Token to work properly</p>
+      <input type="text" id="tokenInput" placeholder="Paste your token here" spellcheck="false" class="text-center">
+      <section class="flex-column justify-end spaced">
+        <span id="stateSpan" style="display: none;"></span>
+        <button class="button primary" id="okButton">Ok</button>
+      </section>
+    </section>
+  </body>
+  <script defer src="token.js"></script>
+</html>

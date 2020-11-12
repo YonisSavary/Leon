@@ -1,0 +1,40 @@
+input, .button
+{
+	font-size: 1rem;
+	font-family: "Open Sans", sans-serif;
+	padding: 0.5rem 2rem;
+	border-radius: .5rem;
+	border: solid 1px #333;
+	box-shadow: 0.2rem 0.2rem 0.3rem rgba(0,0,0,0.1),
+	-0.2rem -0.2rem 0.3rem white;
+	background: linear-gradient(171deg, rgba(245,245,245,1) 0%, rgba(244,244,244,1) 60%, rgba(236,236,236,1) 100%);
+	margin: 0.3rem 0.3rem;
+}
+.button
+{
+	text-align: center;
+	cursor: pointer;
+}
+
+.button.primary
+{
+    color: white;
+    background: linear-gradient(171deg, $color-primary-1 0%, $color-primary-0 60%, $color-primary-3 100%);
+}
+
+input
+{
+	border-radius: 0rem;
+	padding: 0.5rem;
+	background: white;
+}
+
+input[type="file"]
+{
+	display: none;
+}
+
+input[type="text"]
+{
+	min-width: 400px;
+}

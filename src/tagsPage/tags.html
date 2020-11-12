@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Leon - Tags Selection </title>
+		<link rel="stylesheet" href="../css/style.css">
+	</head>
+	<body class="fading">
+		<section class="full-width align-center flex-column spaced" id="searchSection">
+			<h1>Metadata search 👨‍💻</h1>
+			<p>Type an album name in the input and click Ok</p>
+			<input type="text" id="releaseName" placeholder="Californication">
+			<section class="flex-column spaced justify-center">
+					<button class="button primary" id="searchButton">Ok</button>
+			</section>
+			<section class="flex-column" style="display: none;" id="resultsSection">
+	
+			</section>
+		</section>
+		<section class="full-width align-center flex-column" id="confirmSection" style="display: none;">
+			<section class="flex-column fading">
+				<section class="flex-row align-center spaced">
+					<img id="tagsCover" src="" class="icon"/>
+					<section class="flex-column">
+						<h1 id="tagsTitle"></h1>
+						<h2 id="tagsArtist"></h2>
+					</section>
+				</section>
+				<span>Genre : <span id="tagsGenre"></span></span>
+				<span>Année : <span id="tagsYear"></span></span>
+				<section class="spaced">
+					<span>Tracklist</span>
+					<ul id="tagsTracklist">
+					</ul> 
+				</section>
+			</section>
+			<section id="validateTagsSection">
+					<button class="button primary" onclick="validate()">Confirm</button>
+					<button class="button" onclick="cancel()">Cancel</button>
+			</section>
+		</section>
+	</body>
+	<script src="tags.js"></script>
+</html>

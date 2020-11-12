@@ -1,0 +1,100 @@
+
+.screen-size
+{
+	min-height: 100vh;
+}
+
+.flex-row
+{
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column
+{
+	display: flex;
+	flex-direction: column;
+}
+
+.full-width
+{
+	width: 100%;
+}
+
+.justify-center
+{
+	justify-content: center;
+}
+
+.justify-end
+{
+	justify-content: flex-end;
+}
+
+
+.flex-center
+{
+	@extend .flex-column;
+	@extend .justify-center;
+	@extend .align-center;
+}
+
+.align-center
+{
+	align-items: center;
+}
+
+.flex-filler
+{
+	flex: 1;
+}
+
+.flex-fullfiller
+{
+	flex: 1 1 0px;
+}
+
+.progressBarWrapper
+{
+	display: flex;
+	flex-direction: row;
+	border: solid 1px black;
+	border-radius: 1rem;
+	width: 100%;
+	height: 12px;
+	margin-bottom: 1rem;
+}
+
+.progressBar
+{
+	text-align: center;
+	color: white;
+	transition: width 100ms ease;
+	width: 0%;
+	border-radius: 1rem;
+	background-color: green;
+}
+
+.sortable
+{
+    list-style: none;
+    padding: 0.5rem;
+    border-radius: 1rem;
+}
+
+.sortable li
+{
+    border-bottom: 1px solid #999;
+    cursor: pointer;
+    padding : 0.2rem 1rem;
+}
+
+.sortable li:last-of-type
+{
+    border-bottom: none;
+}
+
+.spaced
+{
+	margin: 2rem 0rem;
+}

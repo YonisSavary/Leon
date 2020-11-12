@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Leon - Adjustements</title>
+		<link rel="stylesheet" href="../css/style.css">
+	</head>
+	<body class="fading">
+		<section class="full-width flex-column align-center spaced">
+			<h1>Choices Adjustments ✔️</h1>
+			<p>You can drag items as you want (if you need to reorganize or sort)
+			<br>If items are excessing, they will be ignored</p>
+			<section class="full-width flex-row">
+				<section class="full-column flex-filler">
+					<h2 class="text-center">Tags</h2>
+					<ul class="sortable" id="tagsList">
+					</ul>
+				</section>
+				<section class="full-column flex-filler">
+					<h2 class="text-center">Files</h2>
+					<ul class="sortable" id="filesList">
+					</ul>
+				</section>
+			</section>
+			<section class="full-width flex-row justify-end spaced">
+				<button id="confirmButton" class="button primary">Confirm</button>
+			</section>
+		</section>
+	</body>
+	<script>window.$ = window.jQuery = require('jquery');</script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+	<script src="compare.js"></script>
+</html>
