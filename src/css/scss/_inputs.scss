@@ -1,7 +1,7 @@
 input, .button
 {
 	font-size: 1rem;
-	font-family: "Open Sans", sans-serif;
+	font-family: $font-family;
 	padding: 0.5rem 2rem;
 	border-radius: .5rem;
 	border: solid 1px #333;
@@ -10,6 +10,7 @@ input, .button
 	background: linear-gradient(171deg, rgba(245,245,245,1) 0%, rgba(244,244,244,1) 60%, rgba(236,236,236,1) 100%);
 	margin: 0.3rem 0.3rem;
 }
+
 .button
 {
 	text-align: center;

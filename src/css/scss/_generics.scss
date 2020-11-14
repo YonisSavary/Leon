@@ -16,7 +16,7 @@ body {
 	max-width: 800px;
 	width: 80%;
 	margin: 0 auto;
-	font-family: "Open Sans", sans-serif;
+	font-family: $font-family;
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
