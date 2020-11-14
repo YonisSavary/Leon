@@ -9,7 +9,6 @@ const tokenInput        = "#tokenInput";
 const stateSpan         = "#stateSpan";
 
 let userToken = "";
-//fEVRDfGKToFUfcjHifdaDfSKIUZNSbYHvquDaOsV
 
 async function checkToken (){
     jquery(stateSpan).text("Fetching Discogs to check...")
@@ -68,29 +67,29 @@ const buildInputMenu = ()=>{
 const endWindow = ()=>{
     ipcRenderer.send("token-register", userToken)
     jquery("body").fadeOut(200)
-    setTimeout(()=>{
-        window.location.href= `file://${__dirname}/../tagsPage/tags.html`;
-    }, 200);
+    setTimeout(()=>{ ipcRenderer.send("next") }, 200);
     
 }
 
-if (fs.existsSync("api.json")) 
-{
-    console.log("api.json exists")
-    let config = JSON.parse(fs.readFileSync("api.json").toString());
-    console.log(config)
-    if (!config["token"])
+(()=>{
+    if (fs.existsSync("api.json")) 
     {
-        buildInputMenu()
+        console.log("api.json exists")
+        let config = JSON.parse(fs.readFileSync("api.json").toString());
+        console.log(config)
+        if (!config["token"])
+        {
+            buildInputMenu()
+        }
+        else 
+        {
+            userToken = config["token"];
+            setTimeout(endWindow, 1000);
+        }
     }
     else 
     {
-        userToken = config["token"];
-        setTimeout(endWindow, 1000);
+        console.log("api.json does not exists")
+        buildInputMenu()
     }
-}
-else 
-{
-    console.log("api.json does not exists")
-    buildInputMenu()
-}
+})();

@@ -2,6 +2,14 @@ const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 let userToken = "";
 
+let currentPage = 0
+const navigation = [
+  "src/tokenPage/token.html",
+  "src/tagsPage/tags.html",
+  "src/filesPage/files.html",
+  "src/comparePage/compare.html",
+  "src/buildPage/build.html"
+]
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
@@ -25,41 +33,19 @@ const createWindow = () => {
   mainWindow.removeMenu()
 
   // and load the index.html of the app.
-  mainWindow.loadFile(path.join(__dirname, '/tokenPage/token.html'));
+  mainWindow.loadFile(navigation[currentPage]);
 
   // Open the DevTools.
-  //mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
 
-  ipcMain.on("token-register", (event, args)=>{
-    userToken = args
-  })
+  ipcMain.on("token-register", (event, args)=>{ userToken = args })
+  ipcMain.on("tags-register", (event, args)=>{ tags = args })
+  ipcMain.on("files-register", (event, args)=>{ files = args })
+  ipcMain.on("assoc-register", (event, args)=>{ assoc = args });
+
   ipcMain.on("token-ask", (event, args)=>{
     event.reply("token-give", userToken);
   })
-
-  ipcMain.on("token-end", ()=>{
-    mainWindow.loadFile(path.join(__dirname, '/tagsPage/tags.html'));
-  })
-
-  ipcMain.on("tags-end", (event, args)=>{
-    tags = args
-    mainWindow.loadFile(path.join(__dirname, '/filesPage/files.html'));
-    //console.log("received files ! " + JSON.stringify(tags))
-  })
-  
-  ipcMain.on("files-end", (event, args)=>{
-    files = args
-    mainWindow.loadFile(path.join(__dirname, '/comparePage/compare.html'));
-    //console.log("received tags ! " + JSON.stringify(tags))
-  });
-
-
-  ipcMain.on("compare-end", (event, args)=>{
-    assoc = args
-    mainWindow.loadFile(path.join(__dirname, '/buildPage/build.html'));
-    //console.log("received association table ! " + JSON.stringify(assoc))
-  })
-
 
   ipcMain.on("tags-ask", (event, args)=>{
     event.reply("tags-give", tags);
@@ -71,6 +57,16 @@ const createWindow = () => {
   
   ipcMain.on("assoc-ask", (event, args)=>{
     event.reply("assoc-give", assoc);
+  })
+
+  ipcMain.on("previous", (event, args)=>{
+    currentPage--;
+    mainWindow.loadFile(navigation[currentPage]);
+  })
+  
+  ipcMain.on("next", (event, args)=>{
+    currentPage++;
+    mainWindow.loadFile(navigation[currentPage]);
   })
 
 };

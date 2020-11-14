@@ -160,8 +160,9 @@ function buildMasterList(masterURL){
  */
 function validate(){
     globalTags = undefined;
+    ipcRenderer.send("tags-register", tags);
     jquery("body").fadeOut(200);
-    setTimeout(()=>{ ipcRenderer.send("tags-end", tags) }, 200)
+    setTimeout(()=>{ ipcRenderer.send("next") }, 200)
 }
 
 function cancel(){

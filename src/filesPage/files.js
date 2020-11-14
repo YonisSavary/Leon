@@ -23,8 +23,9 @@ function listFiles(){
 
 function confirm()
 {
+    ipcRenderer.send("files-register", fl);
     jquery("body").fadeOut(200)
-    setTimeout(()=>{ ipcRenderer.send("files-end", fl); }, 200);
+    setTimeout(()=>{ ipcRenderer.send("next"); }, 200);
 }
 
 fileSelect.onchange = listFiles

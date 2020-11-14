@@ -91,3 +91,4 @@ yarn.lock
 out/
 tmp/
 api.json
+start.bat

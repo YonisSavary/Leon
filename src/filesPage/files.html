@@ -9,12 +9,14 @@
 		<section class="full-width flex-column align-center spaced">
 			<h1>Files Selection 📁</h1>
 			<input type="file" name="" id="fileSelect" webkitdirectory>
-			<label class="button" for="fileSelect">Click here to choose a directory</label>
+			<label class="button" for="fileSelect">Choose a directory</label>
 			<section id="fileListSection" style="display: none;">
 				<ul id="fileListHtml">
 	
 				</ul>
-				<button class="button primary" onclick="confirm()">Confirm</button>
+				<section class="flex-row justify-center spaced">
+					<button class="button primary" onclick="confirm()">Confirm</button>
+				</section>
 			</section>
 		</section>
 	</body>

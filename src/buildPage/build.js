@@ -26,6 +26,8 @@ async function validate(){
         pathAssoc[elem.name] = elem.path;
     });
 
+    fs.mkdir("tmp", ()=>{});
+
     log("Downloading Album cover...")
     await pipeline(
         got.stream(tags.cover),
@@ -48,9 +50,14 @@ async function validate(){
 
         let directory = path.substr(0, path.lastIndexOf("\\")) + "\\";
         let extension = path.substr(path.lastIndexOf("."), path.length);
-        let newName = directory + assoc[file] + extension;
+        let twoDigitIndex = ("0" + i).slice(-2) ;
+        let newName = directory + twoDigitIndex + " " + assoc[file] + extension;
         fs.rename(path, newName, ()=>{});
     })
+
+    fs.unlinkSync("tmp/cover.png");
+    fs.rmdirSync("tmp");
+
     log("Finished !")
     alert("Finished ! Thanks You For Using Leon !")
 }
@@ -96,4 +103,4 @@ ipcRenderer.on("files-give", (evt, args)=>{
 ipcRenderer.send("tags-ask")
 ipcRenderer.send("assoc-ask")
 ipcRenderer.send("files-ask")
-setTimeout(displayTags, 200)
+setTimeout(displayTags, 50)

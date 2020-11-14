@@ -38,8 +38,9 @@ function buildAndValidate(){
         assoc[files[i]] = tags[i] || files[i];
     }
 
+    ipcRenderer.send("assoc-register", assoc)
     jquery("body").fadeOut(200);
-    setTimeout(()=>{ ipcRenderer.send("compare-end", assoc)}, 200);
+    setTimeout(()=>{ ipcRenderer.send("next")}, 200);
 }
 
 ipcRenderer.on("tags-give", (event, args)=>{
