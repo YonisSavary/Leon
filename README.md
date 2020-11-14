@@ -1,4 +1,6 @@
-# Leon - Music Metadata Fetcher ! [(Leon Logo)](src/img/icon.png?raw=true)
+# Leon - Music Metadata Fetcher ! 
+
+[(Leon Logo)](src/img/icon.png?raw=true)
 
 ## What is Leon ?
 
