@@ -20,6 +20,11 @@ function log(logstr){
     logsSection.innerHTML += logstr + "\n"
 }
 
+function cancel()
+{
+    ipcRenderer.send("previous");
+}
+
 async function validate(){
     let pathAssoc = {};
     files.forEach(elem =>{
@@ -50,7 +55,7 @@ async function validate(){
 
         let directory = path.substr(0, path.lastIndexOf("\\")) + "\\";
         let extension = path.substr(path.lastIndexOf("."), path.length);
-        let twoDigitIndex = ("0" + i).slice(-2) ;
+        let twoDigitIndex = ("0" + (i+1)).slice(-2) ;
         let newName = directory + twoDigitIndex + " " + assoc[file] + extension;
         fs.rename(path, newName, ()=>{});
     })

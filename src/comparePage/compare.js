@@ -43,6 +43,10 @@ function buildAndValidate(){
     setTimeout(()=>{ ipcRenderer.send("next")}, 200);
 }
 
+function cancel(){
+    ipcRenderer.send("previous");
+}
+
 ipcRenderer.on("tags-give", (event, args)=>{
     console.log("received tags");
     tags = args
