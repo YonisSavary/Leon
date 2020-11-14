@@ -36,7 +36,7 @@ const createWindow = () => {
   mainWindow.loadFile(navigation[currentPage]);
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  //mainWindow.webContents.openDevTools();
 
   ipcMain.on("token-register", (event, args)=>{ userToken = args })
   ipcMain.on("tags-register", (event, args)=>{ tags = args })
