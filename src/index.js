@@ -1,8 +1,7 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
-let userToken = "";
 
-let currentPage = 0
+let currentPage = 0;
 const navigation = [
   "src/html/token.html",
   "src/html/tags.html",
@@ -18,9 +17,12 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
 
 const createWindow = () => {
   // Create the browser window.
-  let tags = {};
-  let files = [];
-  let assoc = {};
+  let data = {
+    "token": null,
+    "tags" : null,
+    "files": null,
+    "assoc": null
+  }
 
   const mainWindow = new BrowserWindow({
     width: 1000,
@@ -37,26 +39,12 @@ const createWindow = () => {
 
   // Open the DevTools.
   //mainWindow.webContents.openDevTools();
-
-  ipcMain.on("token-register", (event, args)=>{ userToken = args })
-  ipcMain.on("tags-register", (event, args)=>{ tags = args })
-  ipcMain.on("files-register", (event, args)=>{ files = args })
-  ipcMain.on("assoc-register", (event, args)=>{ assoc = args });
-
-  ipcMain.on("token-ask", (event, args)=>{
-    event.reply("token-give", userToken);
-  })
-
-  ipcMain.on("tags-ask", (event, args)=>{
-    event.reply("tags-give", tags);
-  })
-
-  ipcMain.on("files-ask", (event, args)=>{
-    event.reply("files-give", files);
-  })
+  Object.keys(data).forEach( dataName =>{
+    ipcMain.on(`${dataName}-register`, (event, args)=>{ data[dataName] = args })
   
-  ipcMain.on("assoc-ask", (event, args)=>{
-    event.reply("assoc-give", assoc);
+    ipcMain.on(`${dataName}-ask`, (event, args)=>{
+      event.reply(`${dataName}-give`, data[dataName]);
+    })
   })
 
   ipcMain.on("previous", (event, args)=>{
