@@ -7,6 +7,7 @@
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
+    "build": "electron-packager . --out=./out --platform=win32 --arch=x64 --icon=src/img/icon.ico --asar=true --overwrite",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
     "lint": "echo \"No linting configured\""
