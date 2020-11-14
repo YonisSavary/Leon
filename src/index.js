@@ -39,9 +39,9 @@ const createWindow = () => {
 
   // Open the DevTools.
   //mainWindow.webContents.openDevTools();
+  
   Object.keys(data).forEach( dataName =>{
     ipcMain.on(`${dataName}-register`, (event, args)=>{ data[dataName] = args })
-  
     ipcMain.on(`${dataName}-ask`, (event, args)=>{
       event.reply(`${dataName}-give`, data[dataName]);
     })

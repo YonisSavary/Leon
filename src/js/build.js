@@ -26,6 +26,7 @@ function cancel()
 }
 
 async function validate(){
+    jquery("#validateTagsSection").hide();
     let pathAssoc = {};
     files.forEach(elem =>{
         pathAssoc[elem.name] = elem.path;

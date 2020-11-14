@@ -95,7 +95,7 @@ async function fetchMasterAndBuild(masterURL){
             <div class="flex-row align-center clickable fading button" onclick="chooseTags(${data.id})">
                 <img class="icon" src="${data.images[0].resource_url}">
                 <h2 class="clickable">
-                    ${data.artists[0].name} - ${data.title}
+                    ${getArtistName(data.artists[0].name)} - ${data.title}
                 </h2>
             </div>
         `
