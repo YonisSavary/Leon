@@ -6,7 +6,12 @@
 		<link rel="stylesheet" href="../css/style.css">
 	</head>
 	<body class="fading">
-		<a href="credit.html" class="top-left clickable">Credits</a>
+		<section class="flex-row top-left">
+			<a href="credit.html">Credits</a>
+			<span>|</span>
+			<a class="clickable" onclick="resetToken()">Reset your api token</a>
+		</section>
+		
 		<section class="full-width align-center flex-column spaced" id="searchSection">
 			<h1>Metadata search 👨‍💻</h1>
 			<p>Type an album name in the input and click Ok</p>

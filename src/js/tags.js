@@ -1,5 +1,6 @@
 const { ipcRenderer } = require("electron")
 const jquery = require("jquery")
+const fs = require("fs");
 
 let userToken = "";
 let globalTags = {};
@@ -151,6 +152,13 @@ function buildMasterList(masterURL){
     }
 }
 
+function resetToken(){
+    if (confirm('Are you sure you want to reset api.json file ?')) {
+        fs.unlink("api.json", ()=>{
+            ipcRenderer.send("previous")
+        })
+    }
+}
 
 /**
  * Function triggered by clicking on the validate button
