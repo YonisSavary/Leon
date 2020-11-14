@@ -4,11 +4,11 @@ let userToken = "";
 
 let currentPage = 0
 const navigation = [
-  "src/tokenPage/token.html",
-  "src/tagsPage/tags.html",
-  "src/filesPage/files.html",
-  "src/comparePage/compare.html",
-  "src/buildPage/build.html"
+  "src/html/token.html",
+  "src/html/tags.html",
+  "src/html/files.html",
+  "src/html/compare.html",
+  "src/html/build.html"
 ]
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.

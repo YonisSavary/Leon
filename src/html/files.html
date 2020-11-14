@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Leon - Files Selection</title>
+		<link rel="stylesheet" href="../css/style.css">
+	</head>
+	<body class="fading">
+		<section class="full-width flex-column align-center spaced">
+			<h1>Files Selection 📁</h1>
+			<section id="fileListSection" class="onlyWithFiles" style="display: none;">
+				<ul id="fileListHtml">
+	
+				</ul>
+			</section>
+			<section class="flex-row justify-center spaced">
+				<button class="button primary onlyWithFiles" onclick="confirm()">Confirm</button>
+				<input type="file" name="" id="fileSelect" webkitdirectory>
+				<label class="button" for="fileSelect">Choose a directory</label>
+			</section>
+			<button class="button" onclick="cancel()">Return to tags selection</button>
+		</section>
+	</body>
+	<script src="../js/files.js"></script>
+</html>

@@ -6,6 +6,10 @@ let fileSelect = document.querySelector("#fileSelect")
 let fileListSection = document.querySelector("#fileListSection")
 let fileListHtml = document.querySelector("#fileListHtml")
 
+function cancel(){
+    ipcRenderer.send("previous");
+}
+
 function listFiles(){
     let fileListTemp = fileSelect.files;
     for (let i=0; i<fileListTemp.length; i++){
@@ -18,7 +22,7 @@ function listFiles(){
     fileListHtml.innerHTML = `
         <li>${fl.map(elem => elem.name).join("</li><li>")}</li>
     `
-    jquery(fileListSection).fadeIn(200)
+    jquery(".onlyWithFiles").fadeIn(200);
 }
 
 function confirm()
@@ -28,4 +32,5 @@ function confirm()
     setTimeout(()=>{ ipcRenderer.send("next"); }, 200);
 }
 
+jquery(".onlyWithFiles").hide();
 fileSelect.onchange = listFiles
